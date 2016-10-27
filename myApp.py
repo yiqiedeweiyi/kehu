@@ -19,13 +19,7 @@ def index():
 def getdata():
     if request.method == 'POST':
         print(request.values)
-        jsonData=set()
-        if isLocal:
-            file=open('data.txt','r')
-            jsonData=json.loads(file.readline())
-        else:
-            bucket = Bucket('filebucket')
-            jsonData=json.loads(bucket.get_object_contents('data.txt'))
+        jsonData={request.values}
         return jsonify(jsonData)
     else:
         db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB,charset='utf8')
