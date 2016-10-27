@@ -14,7 +14,7 @@ app.debug = True
 def index():
 	return render_template('index1.html')
 
-@app.route('/getdata', methods=['POST', 'GET'])
+@app.route('/getdata', methods=['POST'])
 def getdata():
     if request.method == 'POST':
         print(request.values)
