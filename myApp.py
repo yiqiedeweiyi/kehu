@@ -3,7 +3,6 @@ __author__ = 'PC'
 from flask import Flask, render_template,request,jsonify
 import sae.const
 import MySQLdb
-import unicode
 try:
     from sae.storage import Bucket
 except:
@@ -34,7 +33,7 @@ def getdata():
         db.query("""SELECT * FROM mysql0571""")
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
-        jsonData = {'data': unicode([myRow])}
+        jsonData = {'data': [myRow]}
         return jsonify(jsonData)
 
 if __name__ == '__main__':
