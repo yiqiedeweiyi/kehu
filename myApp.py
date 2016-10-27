@@ -27,6 +27,9 @@ def getdata():
             jsonData=json.loads(bucket.get_object_contents('data.txt'))
         return jsonify(jsonData)
     else:
+        db=sae.const.connect(host="localhost",user=sae.const.MYSQL_USER,
+                  passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB)
+
         jsonData = {'data': [sae.const.MYSQL_DB,sae.const.MYSQL_USER ,sae.const.MYSQL_PASS,sae.const.MYSQL_HOST,sae.const.MYSQL_PORT,
                              sae.const.MYSQL_HOST_S]}
         return jsonify(jsonData)
