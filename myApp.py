@@ -29,7 +29,7 @@ def getdata():
         return jsonify(jsonData)
     else:
 
-        db=_mysql.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,charset="UTF8")
+        db=_mysql.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,use_unicode="UTF8")
         db.query("""SELECT * FROM mysql0571""")
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
