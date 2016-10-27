@@ -32,7 +32,7 @@ def getdata():
         db.query("""SELECT * FROM mysql0571""")
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
-        jsonData =str( {'data': [myRow]})
+        jsonData =str( {'data': [myRow]}).encode('utf-8')
         return jsonData
         # return jsonify(jsonData)
 
