@@ -1,6 +1,7 @@
 #coding=utf-8
 __author__ = 'PC'
 from flask import Flask, render_template,request,jsonify
+import sae.const
 try:
     from sae.storage import Bucket
 except:
@@ -26,7 +27,7 @@ def getdata():
             jsonData=json.loads(bucket.get_object_contents('data.txt'))
         return jsonify(jsonData)
     else:
-        jsonData = {'data': [1,2,3,4,5,6]}
+        jsonData = {'data': [sae.const.MYSQL_DB]}
         return jsonify(jsonData)
 
 @app.route('/setdata', methods=['POST', 'GET'])
