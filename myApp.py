@@ -12,6 +12,7 @@ app.debug = True
 @app.route('/')
 def index():
 	return render_template('index.html')
+
 @app.route('/getdata', methods=['POST', 'GET'])
 def getdata():
     if request.method == 'POST':
@@ -27,6 +28,7 @@ def getdata():
     else:
         jsonData = {'data': []}
         return jsonify(jsonData)
+
 @app.route('/setdata', methods=['POST', 'GET'])
 def setdata():
     if request.method == 'POST':
@@ -60,6 +62,7 @@ def setdata():
     else:
         jsonData = {'data': []}
         return jsonify(jsonData)
+
 @app.route('/updateData', methods=['POST', 'GET'])
 def updateData():
     if request.method == 'POST':
