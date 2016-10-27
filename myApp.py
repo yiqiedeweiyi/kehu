@@ -2,7 +2,7 @@
 __author__ = 'PC'
 from flask import Flask, render_template,request,jsonify
 import sae.const
-import _mysql
+import MySQLdb
 try:
     from sae.storage import Bucket
 except:
@@ -29,7 +29,7 @@ def getdata():
         return jsonify(jsonData)
     else:
 
-        db=_mysql.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB)
+        db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB)
         db.query("""SELECT * FROM mysql0571""")
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
