@@ -18,8 +18,8 @@ def index():
 @app.route('/getdata', methods=['POST', 'GET'])
 def getdata():
     if request.method == 'POST':
-        values=request.values['data']
-        jsonData={'data':values}
+        values=request.values['dataId']
+        jsonData=values
         return jsonify(jsonData)
     else:
         db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB,charset='utf8')
