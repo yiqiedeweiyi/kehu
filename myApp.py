@@ -33,7 +33,8 @@ def getdata():
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
         jsonData = {'data': [myRow]}
-        return jsonify(jsonData)
+        return jsonData
+        # return jsonify(jsonData)
 
 if __name__ == '__main__':
     app.run()
