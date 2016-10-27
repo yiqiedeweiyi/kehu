@@ -31,10 +31,9 @@ def getdata():
 
         db=_mysql.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB)
         db.query("""SELECT * FROM mysql0571""")
-
-
-        jsonData = {'data': [sae.const.MYSQL_DB,sae.const.MYSQL_USER ,sae.const.MYSQL_PASS,sae.const.MYSQL_HOST,sae.const.MYSQL_PORT,
-                             sae.const.MYSQL_HOST_S]}
+        r=db.store_result()
+        myRow=r.fetch_row()
+        jsonData = {'data': [myRow]}
         return jsonify(jsonData)
 
 @app.route('/setdata', methods=['POST', 'GET'])
