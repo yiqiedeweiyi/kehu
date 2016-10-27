@@ -28,12 +28,11 @@ def getdata():
             jsonData=json.loads(bucket.get_object_contents('data.txt'))
         return jsonify(jsonData)
     else:
-
         db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB,charset='utf8')
         db.query("""SELECT * FROM mysql0571""")
         r=db.store_result()
         myRow=r.fetch_row(r.num_rows())
-        jsonData = {'data': [myRow]}
+        jsonData = {'data': [str(myRow).encode("utf-8")]}
         return jsonify(jsonData)
 
 if __name__ == '__main__':
