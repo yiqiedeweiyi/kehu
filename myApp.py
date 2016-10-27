@@ -26,7 +26,7 @@ def getdata():
             jsonData=json.loads(bucket.get_object_contents('data.txt'))
         return jsonify(jsonData)
     else:
-        jsonData = {'data': []}
+        jsonData = {'data': [1,2,3,4,5,6]}
         return jsonify(jsonData)
 
 @app.route('/setdata', methods=['POST', 'GET'])
