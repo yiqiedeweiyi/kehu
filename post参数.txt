@@ -1,0 +1,17 @@
+User-Agent: Fiddler
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Host: 1.mysql0571.applinzi.com
+Content-Length: 15
+
+
+
+
+http://1.mysql0571.applinzi.com/getdata
+
+
+
+
+git add .
+git commit -m "Init my first app"
+git push sae 1
+
