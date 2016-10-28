@@ -18,7 +18,7 @@ def index():
 @app.route('/getdata', methods=['POST', 'GET'])
 def getdata():
     if request.method == 'POST':
-        values=request.values['dataId']
+        values=str(request.values['dataId'])
         jsonData={'dataId':values}
         db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT),user=sae.const.MYSQL_USER,passwd=sae.const.MYSQL_PASS,db=sae.const.MYSQL_DB,charset='utf8')
         # db.query("""SELECT * FROM mysql0571 WHERE AK编号='"""+values +"' or G编号='"+values+"' or D编号='"+values+"'")
